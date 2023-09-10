@@ -374,7 +374,7 @@ menu.hamburger-menu.default {
   left: auto;
   width: 1271px;
   height: 1034px;
-  background-image: url("../../../src/assets/images/hero/bg-intro-desktop.svg");
+  background-image: url("../src/assets/images/hero/bg-intro-desktop.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 1271px;
@@ -390,7 +390,7 @@ menu.hamburger-menu.default {
   left: auto;
   width: 767px;
   height: 939px;
-  background-image: url("../../../src/assets/images/hero/image-mockups.png");
+  background-image: url("../src/assets/images/hero/image-mockups.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 767px;
@@ -507,7 +507,7 @@ menu.hamburger-menu.default {
   }
   .hero .hero__banner::before {
     content: "";
-    background-image: url("../../../src/assets/images/hero/bg-intro-mobile.svg");
+    background-image: url("../src/assets/images/hero/bg-intro-mobile.svg");
     top: -160px;
     right: -258px;
   }
