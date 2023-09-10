@@ -30,7 +30,7 @@ This project, the "Easybank Landing Page," was developed as part of a Frontend M
 
 ## How to Use
 
-1. Access the live demo [here](https://maorbezalel.github.io/esaybank-landing-page/).
+1. Access the live demo [here](https://maorbezalel.github.io/easybank-landing-page/).
 2. Explore the landing page on various devices to experience its responsiveness.
 3. Interact with the page to see hover and focus states in action.
 
