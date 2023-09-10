@@ -1,0 +1,346 @@
+// Uses
+@use '../colors/colors' as *;
+@use '../fonts/fonts' as *;
+@use '../helpers/helpers' as *;
+
+// Styles
+#main-wrapper {
+    background-color: $clr-very-light-gray;
+}
+
+#hero-wrapper {
+    background-color: $clr-very-light-gray;
+}
+
+#features-wrapper {
+    background-color: $clr-light-grayish-blue;
+    position: relative;
+    z-index: 100;
+}
+
+.main {
+    width: 100%;
+
+    .hero {
+        $self: '.hero';
+
+        background-color: $clr-very-light-gray;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        &__intro {
+            @include flex-items(column, space-between, flex-start);
+            row-gap: 3rem;
+
+            #{$self}__title {
+                @include font($color: $clr-dark-blue, $size: $font-size-7xl, $weight: $font-weight-regular);
+            }
+
+            #{$self}__text {
+                @include font($color: $clr-grayish-blue, $size: $font-size-xl, $weight: $font-weight-regular);
+            }
+        }
+
+        &__banner {
+            width: 100%;
+
+            &::before {
+                @include abs-position($top: -160px, $right: -440px);
+                @include size($width: 1271px, $height: 1034px);
+                @include bg-image($url: '../../../src/assets/images/hero/bg-intro-desktop.svg', $size: 1271px);
+                content: '';
+                display: block;
+                z-index: 99;
+            }
+
+            &::after {
+                @include abs-position($top: -15px, $right: -130px);
+                @include size($width: 767px, $height: 939px);
+                @include bg-image($url: '../../../src/assets/images/hero/image-mockups.png', $size: 767px);
+                content: '';
+                display: block;
+                z-index: 999;
+            }
+        }
+    }
+
+    .features {
+        $self: '.features';
+
+        @include flex-items(column, center, flex-start);
+        @include padding-top-bottom(5rem);
+        background-color: $clr-light-grayish-blue;
+        row-gap: 4rem;
+
+        &__heading {
+            @include flex-items(column, center, flex-start);
+            row-gap: 2rem;
+
+            h2 {
+                @include font($color: $clr-dark-blue, $size: $font-size-5xl, $weight: $font-weight-regular);
+            }
+
+            p {
+                @include font($color: $clr-grayish-blue, $size: $font-size-lg, $weight: $font-weight-regular);
+            }
+        }
+
+        &__cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 1fr;
+            column-gap: 2rem;
+
+            #{$self}__card {
+                @include flex-items(column, flex-start, flex-start);
+                row-gap: 2.5rem;
+                padding-right: 2rem;
+
+                h3 {
+                    @include font($color: $clr-dark-blue, $size: $font-size-2xl, $weight: $font-weight-regular);
+                }
+
+                p {
+                    @include font($color: $clr-grayish-blue, $size: $font-size-lg, $weight: $font-weight-regular);
+                }
+            }
+        }
+    }
+}
+
+// Media Queries
+/* 2xl */
+@media (max-width: 1536px) {
+    .hero {
+        .hero__intro {
+            .hero__title {
+                font-size: $font-size-6xl;
+            }
+        
+            .hero__text {
+                font-size: $font-size-lg;
+            }
+        }
+    }
+}
+
+/* xl */
+@media (max-width: 1280px) {
+    .hero {
+        .hero__intro {
+            .hero__title {
+                font-size: $font-size-5xl;
+            }
+        
+            .hero__text {
+                font-size: $font-size-base;
+            }
+        }
+
+        .hero__banner::before {
+            right: -590px;
+        }
+    
+        .hero__banner::after {
+            top: -15px;
+            right: -280px;
+        }
+    }
+
+}
+
+/* lg */
+@media (max-width: 1024px) {
+    .hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+            "banner banner"
+            "intro intro";
+        row-gap: 6rem;
+        place-items: center;
+
+        .hero__intro {
+            grid-area: intro;
+            align-items: flex-start;
+
+            .hero__title {
+                font-size: $font-size-7xl;
+            }
+        
+            .hero__text {
+                font-size: $font-size-xl;
+            }
+
+            button.request-invite-btn {
+                align-self: center;
+            }
+        }
+        .hero__banner {
+            grid-area: banner;
+
+            &::before {
+                content: '';
+                background-image: url('../../../src/assets/images/hero/bg-intro-mobile.svg');
+                top: -160px;
+                right: -258px;
+            }
+
+            &::after {
+                @include abs-center-horizontally-with-top(-230px);
+                content: '';
+                top: -230px;
+                left: 50%;
+                transform: translateX(-50%) scale(0.9);
+            }
+        }
+    }
+
+    .features {
+        justify-content: center !important;
+        align-items: center !important;
+
+        .features__heading {
+            align-items: center;
+            text-align: center;
+        }
+
+        .features__cards {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            row-gap: 2.5rem;
+            column-gap: 1.5rem;
+
+            .features__card {
+                @include flex-items(column, center, center);
+                row-gap: 1.5rem;
+                padding-right: 0;
+                text-align: center;
+
+                p {
+                    width: 300px;
+                }
+            }
+        }
+    }
+}
+
+/* md */
+@media (max-width: 768px) {
+    .hero {
+        row-gap: 8rem;
+        .hero__intro {
+            .hero__title {
+                font-size: $font-size-6xl;
+            }
+        
+            .hero__text {
+                font-size: $font-size-lg;
+            }
+        }
+
+        .hero__banner {
+            &::before {
+                @include size($width: 100%, $height: 100%);
+                background-size: cover;
+                top:-200px;
+                right:0;
+            }
+
+            &::after {
+                top: -250px;
+                left: 50%;
+                transform: translateX(-50%) scale(0.8);
+            }
+        }
+    }
+
+    .features {
+        justify-content: center !important;
+        align-items: center !important;
+    }
+}
+
+/* sm */
+@media (max-width: 640px) {
+    .hero {
+        row-gap: 3rem;
+        .hero__intro {
+            align-items: center;
+
+            .hero__title {
+                font-size: $font-size-5xl;
+            }
+            
+            .hero__text {
+                padding-left: 1.795rem;
+            }
+        }
+
+        .hero__banner {
+            &::before {
+                width: 100%;
+                height: 100%;
+                background-size: 675px 623px;
+                top:-225px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            &::after {
+                top: -289px;
+                left: 50%;
+                transform: translateX(-50%) scale(0.6);
+            }
+        }
+    }
+
+    .features {
+        .features__cards {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            row-gap: 2.5rem;
+            column-gap: 1.5rem;
+
+            .features__card {
+                @include flex-items(column, center, center);
+                row-gap: 1.5rem;
+                padding-right: 0;
+                text-align: center;
+
+                p {
+                    width: auto;
+                }
+            }
+        }
+    }
+}
+
+/* xs */
+@media (max-width: 475px) {
+    .hero {
+        row-gap: 0rem;
+        .hero__intro {
+            .hero__title {
+                font-size: $font-size-5xl;
+            }
+        
+            .hero__text {
+                font-size: $font-size-lg;
+                padding-left: 0;
+            }
+        }
+
+        .hero__banner {
+            &::before {
+                top:-215px;
+            }
+
+            &::after {
+                top: -307px;
+                left: 50%;
+                transform: translateX(-50%) scale(0.5);
+            }
+        }
+    }
+}

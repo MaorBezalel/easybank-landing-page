@@ -1,0 +1,11 @@
+// Primary Colors
+$clr-dark-blue: hsl(233, 26%, 24%);
+$clr-lime-green: hsl(136, 65%, 51%);
+$clr-bright-cyan: hsl(192, 70%, 51%);
+$clr-green-to-cyan-gradient: linear-gradient(to right, $clr-lime-green, $clr-bright-cyan);
+
+// Neutral Colors
+$clr-grayish-blue: hsl(233, 8%, 62%);
+$clr-light-grayish-blue: hsl(220, 16%, 96%);
+$clr-very-light-gray: hsl(0, 0%, 98%);
+$clr-white: hsl(0, 0%, 100%)

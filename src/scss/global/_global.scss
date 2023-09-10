@@ -1,0 +1,79 @@
+// Uses
+@use '../colors/colors' as *;
+@use '../fonts/fonts' as *;
+
+// Styles
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+* {
+    margin: 0;
+    line-height: calc(1em + 0.5rem);
+}
+
+body {
+    background-color: $clr-very-light-gray;
+    font-family: $font-family-main;
+    font-size: $font-size-lg;
+    margin: 0;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 0 $clr-white;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: linear-gradient(to top, $clr-lime-green, $clr-bright-cyan);
+        outline: 1px solid $clr-green-to-cyan-gradient;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    user-select: none;
+}
+
+button {
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    line-height: 1.2;
+    margin: 0;
+}
+
+button.request-invite-btn {
+    background-image: linear-gradient(to right, $clr-lime-green, $clr-bright-cyan);
+    color: $clr-very-light-gray;
+    border: none;
+    border-radius: 2rem;
+    padding: 1rem 2.5rem;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+}
+
+.wrapper {
+    width: 100%;
+}

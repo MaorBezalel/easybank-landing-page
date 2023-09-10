@@ -1,0 +1,108 @@
+// Mixins
+@mixin flex-items($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin abs-position($top: auto, $right: auto, $bottom: auto, $left: auto) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin abs-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin abs-center-horizontally {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@mixin abs-center-horizontally-with-top($top) {
+    @include abs-center-horizontally;
+    top: $top;
+}
+
+@mixin abs-center-horizontally-with-bottom($bottom) {
+    @include abs-center-horizontally;
+    bottom: $bottom;
+}
+
+@mixin abs-center-vertically {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin abs-center-vertically-with-left($left) {
+    @include abs-center-vertically;
+    left: $left;
+}
+
+@mixin abs-center-vertically-with-right($right) {
+    @include abs-center-vertically;
+    right: $right;
+}
+
+@mixin size($width, $height: auto) {
+    width: $width;
+    height: $height;
+}
+
+@mixin square-size($size) {
+    width: $size;
+    height: $size;
+}
+
+@mixin font($color: inherit, $size: inherit, $weight: inherit, $family: inherit) {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+    font-family: $family;
+}
+
+@mixin gradient($direction, $color1, $color2) {
+    background-image: linear-gradient($direction, $color1, $color2);
+}
+
+@mixin padding-top-bottom($top, $bottom: $top) {
+    padding-top: $top;
+    padding-bottom: $bottom;
+}
+
+@mixin padding-left-right($left, $right: $left) {
+    padding-left: $left;
+    padding-right: $right;
+}
+
+@mixin margin-top-bottom($top, $bottom: $top) {
+    margin-top: $top;
+    margin-bottom: $bottom;
+}
+
+@mixin margin-left-right($left, $right: $left) {
+    margin-left: $left;
+    margin-right: $right;
+}
+
+@mixin center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin bg-image($url, $repeat: no-repeat, $position: center, $size: auto) {
+    background-image: url($url);
+    background-repeat: $repeat;
+    background-position: $position;
+    background-size: $size;
+}

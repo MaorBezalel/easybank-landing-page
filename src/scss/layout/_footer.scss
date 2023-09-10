@@ -1,0 +1,125 @@
+// Uses
+@use '../colors/colors' as *;
+@use '../fonts/fonts' as *;
+@use '../helpers/helpers' as *;
+
+// Styles
+#footer-wrapper {
+    background-color: $clr-dark-blue;
+}
+
+.footer {
+    $self: '.footer';
+
+    @include flex-items(row, space-between, center);
+    @include padding-top-bottom(2.5rem);
+
+    &__logo-social-menu {
+        @include flex-items(row, space-between, flex-start);
+        column-gap: 8rem;
+
+        #{$self}__logo-and-social {
+            @include flex-items(column, flex-start, flex-start);
+            row-gap: 4.3rem;
+    
+            #{$self}__social {
+                @include flex-items(row, flex-start, center);
+                column-gap: 0.8rem;
+    
+                #{$self}__social-icon {
+                    object-fit: contain;
+                    display: inline-block;
+    
+                    svg {
+                        fill: $clr-white;
+                        transition: fill 0.25s ease-in-out;
+                    }
+    
+                    &:hover svg {
+                        fill: $clr-lime-green;
+                    }
+                }
+            }
+        }
+
+        #{$self}__menu {
+            @include flex-items(column, flex-start, flex-start);
+            row-gap: 1rem;
+            column-gap: 2rem;
+
+            #{$self}__menu-link {
+                @include font($color: $clr-white, $size: $font-size-base, $weight: $font-weight-regular);
+                transition: color 0.25s ease-in-out;
+
+                &:hover {
+                    color: $clr-lime-green;
+                }
+            }
+        }
+    }
+
+    &__btn-and-copy {
+        @include flex-items(column, flex-start, flex-end);
+        row-gap: 2rem;
+
+        #{$self}__copy {
+            @include font($color: $clr-grayish-blue, $size: $font-size-base, $weight: $font-weight-regular);
+        }
+    }
+}
+
+// Media Queries
+/* lg */
+@media (max-width: 1024px) {
+    .footer {
+        @include flex-items(column, flex-start, center);
+        row-gap: 3rem;
+
+        .footer__btn-and-copy {
+            @include flex-items(row, space-between, center);
+            width: 37rem;
+
+            .footer__copy {
+                font-size: $font-size-sm;
+            }
+        }
+    }
+}
+
+/* md */
+@media (max-width: 768px) {
+    .footer {
+        row-gap: 2rem;
+        .footer__logo-social-menu {
+            @include flex-items(column, space-between, center);
+            row-gap: 2rem;
+
+            .footer__logo-and-social {
+                @include flex-items(column, space-between, center);
+                row-gap: 2rem;
+
+                .footer__social {
+                    @include flex-items(row, space-between, center);
+                    column-gap: 2rem;
+                }
+            }
+
+            .footer__menu {
+                @include flex-items(column, space-between, center);
+                row-gap: 2rem;
+                text-align: center;
+
+                .footer__menu-link {
+                    font-size: $font-size-base;
+                }
+            }
+        }
+        .footer__btn-and-copy {
+            @include flex-items(column, space-between, center);
+            width: auto;
+            .footer__copy {
+                font-size: $font-size-base;
+            }
+        }
+    }
+}

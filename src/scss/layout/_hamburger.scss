@@ -1,0 +1,77 @@
+@use '../colors/colors' as *;
+@use '../fonts/fonts' as *;
+@use '../helpers/helpers' as *;
+
+// Variables
+$bar-width: 2.5rem;
+$bar-height: 0.2rem;
+$bar-radius: 1rem;
+$bar-gap: 0.5rem;
+$sqrt-2: 1.41421356237;
+$x-width: calc(calc($bar-height * 3 + $bar-gap * 2) * $sqrt-2);
+
+// Styles
+label.hamburger-toggle {
+    display: none; // header media query will change it to flex
+    flex-direction: column;
+    gap: $bar-gap;
+
+    cursor: pointer;
+
+    &::before, &>input, &::after {
+        @include size($width: $bar-width, $height: $bar-height);
+        content: '';
+        background-color: $clr-dark-blue;
+        border-radius: $bar-radius;
+        transform-origin: left center;
+        transition:
+            opacity 200ms ease-in-out, width 200ms ease-in-out, 
+            rotate 200ms ease-in-out, translate 200ms ease-in-out;
+    }
+
+    &>input {
+        appearance: none;
+        padding: 0;
+        margin: 0;
+        outline: none;
+        pointer-events: none;
+
+        &:checked {
+            opacity: 0;
+            width: 0;
+        }
+    }
+
+    &:has(input:checked)::before {
+        rotate: 45deg;
+        width: $x-width;
+        translate: 0 calc($bar-height / -2);
+    }
+    
+    &:has(input:checked)::after {
+        rotate: -45deg;
+        width: $x-width;
+        translate: 0 calc($bar-height / 2);
+    }
+}
+
+menu.hamburger-menu {
+    @include flex-items(column, space-around, center);
+    @include square-size(20rem);
+    @include abs-center-horizontally-with-top(5.5rem);
+    background-color: $clr-white;
+    border-radius: 0.5rem;
+
+    &>li>a {
+        @include font($color: $clr-dark-blue, $size: $font-size-lg, $weight: $font-weight-regular);
+        transition: color 0.25s ease-in-out;
+
+        &:hover {
+            color: $clr-lime-green;
+        }
+    }
+
+    &.default {
+        visibility: hidden;
+    }
+}

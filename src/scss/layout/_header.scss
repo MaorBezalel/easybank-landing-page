@@ -1,0 +1,72 @@
+// Uses
+@use '../colors/colors' as *;
+@use '../fonts/fonts' as *;
+@use '../helpers/helpers' as *;
+
+// Styles
+#header-wrapper {
+    background-color: $clr-white;
+    position: relative;
+    z-index: 9999;
+}
+
+.header {
+    $self: '.header';
+
+    @include flex-items(row, space-between, center);
+    @include padding-top-bottom(1.3rem);
+    background-color: $clr-white;
+    
+    &__menu {
+        @include flex-items(row, space-between, center);
+        gap: 2em;
+
+        a {
+            @include font($color: $clr-grayish-blue, $weight: $font-weight-regular);
+            position: relative;
+            
+            &:hover {
+                color: $clr-dark-blue;
+
+                &::before {
+                    @include size($width: 100%, $height: 5px);
+                    @include abs-position($bottom: -2.5rem, $left: 0);
+                    content: '';
+                    background-image: $clr-green-to-cyan-gradient;
+                }
+            }
+        }
+    }
+}
+
+// Media Queries
+
+/* xl */
+@media (max-width: 1280px) {
+    .header {
+        &__link {
+            font-size: $font-size-base;
+        }
+
+        button.request-invite-btn {
+            font-size: $font-size-sm;
+        }
+    }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+    .header {
+        &__menu {
+            display: none;
+        }
+
+        button.request-invite-btn {
+            display: none;
+        }
+    }
+
+    label.hamburger-toggle {
+        display: flex;
+    }
+}

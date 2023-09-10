@@ -1,0 +1,16 @@
+@use '../colors/colors' as *;
+@use '../animations/animations' as *;
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    background-image: linear-gradient($clr-dark-blue, transparent);
+
+    &.default {
+        visibility: hidden;
+    }
+}
