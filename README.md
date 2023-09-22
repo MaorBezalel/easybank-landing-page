@@ -16,7 +16,7 @@
 
 ## Introduction
 
-This project, the "Easybank Landing Page," was developed as part of a Frontend Mentor assignment to enhance my skills in HTML, SASS, and JavaScript. The goal of the project was to create a responsive landing page for a fake bank called 'Easybank' and ensure that users can view the page's optimal layout based on their device's screen size. Additionally, hover and focus states were implemented for all interactive elements on the page to enhance user experience.
+This project, the "Easybank Landing Page," was developed as part of a Frontend Mentor assignment to enhance my skills in HTML, Sass, and JavaScript. The goal of the project was to create a responsive landing page for a fake bank called 'Easybank' and ensure that users can view the page's optimal layout based on their device's screen size. Additionally, hover and focus states were implemented for all interactive elements on the page to enhance user experience.
 
 ## Built Using
 
